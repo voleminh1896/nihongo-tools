@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Nihongo</title>
+    <link href="bootstrap-5.2.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="nihongo.css" rel="stylesheet">
+    <script src="bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body class="container-fluid">
+    <header class="container-fluid p-2 bg-primary text-white text-center">
+        <h1>Nihongo</h1>
+        <p>Romaji, Hiragana, Katakana</p>
+    </header>
+
+    <div class="row">
+        <p class="fw-bold">
+            * We develop the application to improve your Japanese. If you find it interesting, please contribute to us
+            so
+            we have the motivation to continue developing.
+        </p>
+    </div>
+
+    <div class="accordion" id="accordionID">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Nihongo Characters
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionID">
+                <div class="accordion-body">
+                    <div class="container-fluid mt-5 row">
+                        <form action="">
+                            <div class="row">
+                                <div class="h3 text-center text-secondary" id="total">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="h3 text-center text-secondary" id="romaji">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="h1 text-center text-success" id="hiragana">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="h1 text-center text-primary" id="katakana">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h4 class="text-center fw-bold mt-3">Hidden</h4>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-auto form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="romajiChecked"
+                                        checked="true">
+                                    <label class="form-check-label" for="romajiChecked">
+                                        Romaji
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-auto form-check">
+                                    <input class="col-auto form-check-input" type="checkbox" value=""
+                                        id="hiraganaChecked">
+                                    <label class="col-auto form-check-label" for="hiraganaChecked">
+                                        平仮名 / ひらがな (Hiragana)
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-auto form-check">
+                                    <input class="col-auto form-check-input" type="checkbox" value=""
+                                        id="katakanaChecked">
+                                    <label class="col-auto form-check-label" for="katakanaChecked" checked="true">
+                                        片仮名 / カタカナ (Katakana)
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <input class="col-5 col-lg-1 btn btn-success m-1" type="button" value="Random"
+                                    id="btnRandomNihongo">
+                                <input class="col-5 col-lg-1 btn btn-secondary m-1" type="button" value="Reset"
+                                    id="btnResetNihongo">
+                                <input class="col-5 col-lg-1 btn btn-info m-1 text-light" type="button" value="Result"
+                                    id="btnResultNihongo" data-bs-toggle="modal" data-bs-target="#resultModal">
+
+                                <input type="button" class="col-5 col-lg-1 btn btn-warning m-1 text-light"
+                                    value="Config" data-bs-toggle="modal" id="btnConfigNihongo"
+                                    data-bs-target="#configModal">
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Modal config -->
+                    <div class="modal fade" id="configModal" tabindex="-1" aria-labelledby="configModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="configModalLabel">Configurate Setting</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row m-5">
+                                        <div class="row">
+                                            <h3>Add Data</h3>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="col-auto form-check-input" type="checkbox" value=""
+                                                id="basicChecked" checked="true">
+                                            <label class="col-auto form-check-label" for="basicChecked">
+                                                Basic
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="col-auto form-check-input" type="checkbox" value=""
+                                                id="dakuonChecked">
+                                            <label class="col-auto form-check-label" for="dakuonChecked">
+                                                濁音 (Dakuon) and 半濁音 (Handakuon)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="col-auto form-check-input" type="checkbox" value=""
+                                                id="youonChecked">
+                                            <label class="col-auto form-check-label" for="youonChecked">
+                                                拗音 (youon)
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                                        id="btnsaveConfigNihongo">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal result -->
+                    <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="resultModalLabel">Result</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+
+                                <ol id="resultTable" class="list-group list-group-numbered">
+
+                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-2 me-auto">
+                                            <div class="fw-bold">Subheading</div>
+                                            Content for list item
+                                        </div>
+                                        <span class="badge bg-primary rounded-pill">567567567567</span>
+                                    </li>
+                                </ol>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Kanji
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionID">
+                <div class="container mt-5">
+                    <form action="">
+                        <div class="row">
+                            <div class="h3 text-center text-secondary" id="totalKanji">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="h3 text-center text-secondary" id="onyomiKanji">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="h3 text-center text-secondary" id="kunyomiKanji">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="h1 text-center text-success" id="kanji">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h4 class="text-center fw-bold mt-3">Hidden</h4>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-auto form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="onyomiChecked"
+                                    checked="true">
+                                <label class="form-check-label" for="onyomiChecked">
+                                    Onyomi
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-auto form-check">
+                                <input class="col-auto form-check-input" type="checkbox" value="" id="kunyomiChecked">
+                                <label class="col-auto form-check-label" for="kunyomiChecked">
+                                    Kunyomi
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-auto form-check">
+                                <input class="col-auto form-check-input" type="checkbox" value="" id="kanjiChecked">
+                                <label class="col-auto form-check-label" for="kanjiChecked" checked="true">
+                                    Kanji
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <input class="col-3 col-lg-1 btn btn-success m-1" type="button" value="Random"
+                                id="btnRandomKanji">
+                            <input class="col-3 col-lg-1 btn btn-secondary m-1" type="button" value="Reset"
+                                id="btnResetKanji">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Vocabulary
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionID">
+                <form action="">
+                    <div class="row mt-5">
+                        <div class="total h3 text-center text-secondary" id="totalVocabulary">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="romaji h3 text-center text-secondary" id="romajiVocabulary">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="romaji h1 text-center text-success" id="vocabulary">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="romaji h3 text-center text-info" id="englishVocabulary">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="h1 text-center text-success" id="kanji">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h4 class="text-center fw-bold mt-3">Hidden</h4>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-auto form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="vocabularyChecked"
+                                checked="true">
+                            <label class="form-check-label" for="vocabularyChecked">
+                                Vocabulary
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-auto form-check">
+                            <input class="col-auto form-check-input" type="checkbox" value=""
+                                id="romajiVocabularyChecked">
+                            <label class="col-auto form-check-label" for="romajiVocabularyChecked">
+                                Romaji Vocabulary
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-auto form-check">
+                            <input class="col-auto form-check-input" type="checkbox" value=""
+                                id="englishVocabularyChecked">
+                            <label class="col-auto form-check-label" for="englishVocabularyChecked" checked="true">
+                                English Vocabulary
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <input class="col-3 col-lg-1 btn btn-success m-1" type="button" value="Random"
+                            id="btnRandomVocabulary">
+                        <input class="col-3 col-lg-1 btn btn-secondary m-1" type="button" value="Reset"
+                            id="btnResetVocabulary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <footer>
+        <div class="row mt-5">
+            <div class="h3 text-center fw-bold" id="katakana">
+                Copyright © 2023 . All Rights Reserved. Design by <a href="mailto: voleminh1896@gmail.com">Minke</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="nihongo.js"></script>
+
+</body>
+
+</html>
