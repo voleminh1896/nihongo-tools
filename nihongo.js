@@ -43,9 +43,11 @@ const btnResetKanjiControl = document.getElementById("btnResetKanji");
 
 const btnRandomVocabularyControl = document.getElementById("btnRandomVocabulary");
 const btnResetVocabularyControl = document.getElementById("btnResetVocabulary");
+const btnResultVocabularyControl = document.getElementById("btnResultVocabulary");
 
 // Table
 const resultTableControl = document.getElementById("resultTable");
+const resultVocabularyTableControl = document.getElementById("resultVocabularyTable");
 
 // checked
 var romajiCheckedControl = document.getElementById("romajiChecked");
@@ -65,6 +67,7 @@ var kanjiCheckedControl = document.getElementById("kanjiChecked");
 var vocabularyCheckedControl = document.getElementById("vocabularyChecked");
 var romajiVocabularyCheckedControl = document.getElementById("romajiVocabularyChecked");
 var englishVocabularyCheckedControl = document.getElementById("englishVocabularyChecked");
+var filterVocabularyControl = document.getElementById("filterVocabulary");
 
 var romajiItems = [];
 var hiraganaItems = [];
@@ -109,6 +112,13 @@ async function mainNihongo() {
     vocabularyCheckedControl.addEventListener("change", changeCheckedVocabulary);
     romajiVocabularyCheckedControl.addEventListener("change", changeCheckedRomajiVocabulary);
     englishVocabularyCheckedControl.addEventListener("change", changeCheckedEnglishVocabulary);
+    filterVocabularyControl.addEventListener("input", filterVocabulary);
+
+    btnResultVocabularyControl.addEventListener("click", resultVocabulary);
+}
+
+function filterVocabulary() {
+    getDatasVocabulary(filterVocabularyControl.value);
 }
 
 function changeCheckedVocabulary() {
@@ -147,7 +157,7 @@ async function mainVocabulary() {
     resetTextVocabulary();
 
     // get Data
-    await getDatasVocabulary();
+    await getDatasVocabulary(filterVocabularyControl.value);
 }
 
 function result() {
@@ -161,7 +171,7 @@ function result() {
 
         var value2 = document.createElement("div");
         value2.setAttribute('class', 'ms-2 me-auto');
-        value2.innerHTML = romajiItems[element];
+        //value2.innerHTML = romajiItems[element];
 
         var value = document.createElement("div");
         value.setAttribute('class', 'h3 fw-bold');
@@ -176,6 +186,36 @@ function result() {
         li.appendChild(value3);
 
         resultTableControl.appendChild(li);
+    }
+
+}
+
+function resultVocabulary() {
+    resultVocabularyTableControl.innerHTML = "";
+
+    for (let index = 0; index < indexVocabularyItemsTemp.length; index++) {
+        const element = indexVocabularyItemsTemp[index];
+
+        var li = document.createElement('li');
+        li.setAttribute('class', 'list-group-item d-flex justify-content-between align-items-start');
+
+        var value2 = document.createElement("div");
+        value2.setAttribute('class', 'ms-2 me-auto');
+        value2.innerHTML = romajiVocabularyItems[element];
+
+        var value = document.createElement("div");
+        value.setAttribute('class', 'h3 fw-bold');
+        value.innerHTML = vocabularyItems[element];
+
+        var value3 = document.createElement("span");
+        value3.setAttribute('class', 'h3');
+        value3.innerHTML = englishVocabularyItems[element];
+
+        value2.appendChild(value);
+        li.appendChild(value2);
+        li.appendChild(value3);
+
+        resultVocabularyTableControl.appendChild(li);
     }
 
 }
@@ -212,7 +252,7 @@ async function loadConfig() {
     await getDatasNihongo();
 }
 
-async function getDatasVocabulary() {
+async function getDatasVocabulary(filter) {
     vocabularyItems = [];
     romajiVocabularyItems = [];
     englishVocabularyItems = [];
@@ -222,9 +262,27 @@ async function getDatasVocabulary() {
     for (key in data) {
         if (data.hasOwnProperty(key)) {
             var value = Object.values(data[key]);
-            vocabularyItems.push(value[0]);
-            romajiVocabularyItems.push(value[1]);
-            englishVocabularyItems.push(value[2]);
+            if (value[0] == '' && value[1] == '') {
+                continue;
+            }
+
+            const inputFilter = value[3].split(',');
+            var isAdd = false;
+
+            for (let index = 0; index < inputFilter.length; index++) {
+                const element = inputFilter[index];
+
+                if (filter.includes(element)) {
+                    isAdd = true;
+                }
+
+            }
+
+            if (isAdd) {
+                vocabularyItems.push(value[0]);
+                romajiVocabularyItems.push(value[1]);
+                englishVocabularyItems.push(value[2]);
+            }
         }
     }
 
@@ -353,6 +411,10 @@ function getTotalVocabulary() {
 
 
 function random() {
+    if (romajiItems.length === 0) {
+        return;
+    }
+
     while (true) {
         const randomElement = Math.floor(Math.random() * romajiItems.length);
 
@@ -387,6 +449,11 @@ function random() {
 };
 
 function randomVocabulary() {
+
+    if (romajiVocabularyItems.length === 0) {
+        return;
+    }
+
     while (true) {
         const randomElement = Math.floor(Math.random() * romajiVocabularyItems.length);
 

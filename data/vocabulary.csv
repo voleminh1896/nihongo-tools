@@ -1,7 +1,45 @@
-﻿Column1|Column2|Column3
-おはようございましす|Oha yo go zai masu|chào buổi sáng => buổi học hay buổi đi làm chỉ chào phần này
-こんにちは|konnichiwa|chào buổi chiều
-こんばんは|kombangwa/konbanwa|Chào buổi tối
-せんせい|sensei|Giáo viên
-さようなら|sayonara|chào tạm biệt
-またね|matane|Hẹn gặp lại
+﻿Column1|Column2|Column3|Column4
+おはようございましす|Oha yo go zai masu|chào buổi sáng => buổi học, buổi đi làm chỉ chào phần này|1,2,3,4,5
+こんにちは|konnichiwa|chào buổi chiều|6
+こんばんは|kombangwa/konbanwa|Chào buổi tối|6
+せんせい|sensei|Giáo viên|6
+さようなら|sayonara|chào tạm biệt|6
+またね|matane|Hẹn gặp lại|6
+私|わたし|tôi|6
+私たち|わたし|chúng tôi, chúng ta|6
+彼|かれ|anh ấy, bạn trai|6
+彼女|かのじょ|cô ấy, bạn gái|6
+皆さん|みなさん|các anh chị, các ông bà,các bạn, quý vị|6
+あなた|あなた|anh/chị, ông/bà, bạn (ngôi thứ II số ít)|6
+あの人（あの方）|あのひと（あのかた）|người đó, anh kia, chị kia ( あのかた : vị kia - là cách nói lịch sự của あのひと )|6
+教師|きょうし|giáo viên|6
+先生|せんせい|thầy/cô|6
+学生|がくせい|học sinh|6
+運転手|うんてんしゅ|tài xế|6
+会社員|かいしゃいん|nhân viên công ty|6
+社員|しゃいん|nhân viên công ty|6
+銀行員|ぎんこういん|nhân viên ngân hàng|6
+医者|いしゃ|bác sĩ|6
+ エンジニア| エンジニア|kỹ sư|6
+研究者|けんきゅしゃ|nhà nghiên cứu|6
+留学生|りゅうがくせい|du học sinh|6
+だれ（どなた）|だれ（どなた） |ai ( どなた : vị nào - là cách nói lịch sự của だれ )|6
+大学|だいがく|đại học, trường đại học|6
+病院|びょういん|bệnh viện|6
+日本|にほん|Nhật Bản|6
+ベトナム|ベトナム| Việt Nam|6
+韓国|かんこく|Hàn Quốc|6
+中国|ちゅうごく|Trung Quốc|6
+アメリカ|アメリカ|Mỹ|6
+イギリス|イギリス|Anh|6
+～人|～じん|người ~|6
+～語|～ご|tiếng ~|6
+出身|しゅっしん|xuất thân, quê quán|6
+～からき来した|～からきました|(tôi) đến từ ~|6
+はい|はい|vâng, dạ|6
+いいえ|いいえ|không|6
+失礼ですが|しつれいですが|Xin lỗi,…(dùng khi hỏi ai đó về thông tin cá nhân như là tên hoặc địa chỉ của họ)|6
+お名前をもう一度お願いします|おなまえをもういちどおねがいします|Anh/ Chị vui lòng nhắc lại tên một lần nữa được không ạ?|6
+どうぞよろしくお願いします|どうぞよろしくおねがいします|Rất mong nhận được sự giúp đỡ của anh/chị!|6
+そうですか|そうですか|Vậy à/ Thế à?|6
+お仕事は何ですか|おしごとはなんですか|Công việc của anh/chị là gì thế?|6
