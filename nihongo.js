@@ -262,11 +262,11 @@ async function getDatasVocabulary(filter) {
     for (key in data) {
         if (data.hasOwnProperty(key)) {
             var value = Object.values(data[key]);
-            if (value[0] == '' && value[1] == '') {
+            if (value[2] == '' && value[3] == '') {
                 continue;
             }
 
-            const inputFilter = value[3].split(',');
+            const inputFilter = value[4].split(',');
             var isAdd = false;
 
             for (let index = 0; index < inputFilter.length; index++) {
@@ -279,9 +279,9 @@ async function getDatasVocabulary(filter) {
             }
 
             if (isAdd) {
-                vocabularyItems.push(value[0]);
-                romajiVocabularyItems.push(value[1]);
-                englishVocabularyItems.push(value[2]);
+                vocabularyItems.push(value[1]);
+                romajiVocabularyItems.push(value[2]);
+                englishVocabularyItems.push(value[3]);
             }
         }
     }
