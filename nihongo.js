@@ -118,6 +118,7 @@ async function mainNihongo() {
 }
 
 function filterVocabulary() {
+    resetVocabulary();
     getDatasVocabulary(filterVocabularyControl.value);
 }
 
