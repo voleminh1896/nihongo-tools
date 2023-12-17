@@ -45,8 +45,7 @@ Anata|あなた|あなた|anh/chị, ông/bà, bạn (ngôi thứ II số ít)|1
  |お仕事は何ですか|おしごとはなんですか|Công việc của anh/chị là gì thế?|1
  | |これ|cái này, đây (vật ở gần người nói)|2
  | |それ|cái đó, đó (vật ở gần người nghe)|2
-" | |あれ|cái kia, kia (vật ở xa cả người nói 
-và người nghe)|2"
+ | |あれ|cái kia, kia (vật ở xa cả người nói và người nghe)|2
  | |この～ |~ này|2
  | |その～|~ đó|2
  | |あの～|~ kia|2
@@ -78,7 +77,7 @@ và người nghe)|2"
  |財布|さいふ|ví|2
  | |かばん|cặp sách, túi sách|2
  |靴|くつ|giày|2
- | |スリッパ|dép đi trong nh|2
+ | |スリッパ|Đôi dép|2
  |靴下|くつした|tất|2
  |鍵|かぎ|chìa khóa|2
  |傘|かさ|ô, dù|2
@@ -93,3 +92,90 @@ và người nghe)|2"
  | |スマホ|điện thoại di động|2
  |ほんの気持ち|ほんのきもち|Đây là chút lòng thành của tôi!|2
  | |カ|ô tô, xe hơi|2
+ | |ここ|chỗ này, đây|3
+ | |そこ|chỗ đó, đó|3
+ | |あそこ|chỗ kia, kia|3
+ | |どこ|chỗ nào, đâu|3
+ | |こちら|phía này(cách nói lịch sự của ここ)|3
+ | |そちら|phía đó(cách nói lịch sự của そこ)|3
+ | |あちら|phía kia(cách nói lịch sự của あそこ)|3
+ | |どちら|phía nào(cách nói lịch sự của どこ)|3
+ |受付|うけつけ|quầy lễ tân (dùng cho công ty, cơ quan)|3
+ | |フロント|quầy lễ tân (dùng cho khách sạn)|3
+ |階段|かいだん|cầu thang|3
+ | |エレベーター|thang máy|3
+ | |エスカレーター|thang cuốn|3
+ |お手洗い|おてあらい|phòng vệ sinh|3
+ | |トイレ|phòng vệ sinh|3
+ | |うち|nhà|3
+ | |いえ|nhà|3
+ |部屋|へや|căn phòng|3
+ |教室|きょうしつ|phòng học|3
+ |事務所|じむしょ|văn phòng|3
+ |会議室|かいぎしつ|phòng họp|3
+ |食堂|しょくどう|nhà ăn|3
+ | |ビル|tòa nhà|3
+ | |デパート|trung tâm thương mại|3
+ | |スーパー|siêu thị|3
+ | |センター|trung tâm|3
+ |映画館|えいがかん|rạp chiếu phim|3
+ |喫茶店|きっさてん|quán trà, cà phê|3
+ |図書館|としょかん|thư viện|3
+ |会社|かいしゃ|công ty|3
+ |学校|がっこう|trường học|3
+ |郵便局|ゆうびんきょく|bưu điện|3
+ |銀行|ぎんこう|ngân hàng|3
+ | |バスてい|trạm xe bus|3
+ |駅|えき|nhà ga|3
+ |[お] 国|[お] くに|đất nước (của anh/chị)|3
+ | |いくら|bao nhiêu tiền|3
+ |円|えん|yên|3
+ |月曜日|げつようび|thứ hai|4
+ |火曜日|かようび|thứ ba|4
+ |水曜日|すいようび|thứ tư|4
+ |木曜日|もくようび|thứ năm|4
+ |金曜日|きんようび|thứ sáu|4
+ |土曜日|どようび|thứ bảy|4
+ |日曜日|にちようび|chủ nhật|4
+ |何曜日|なんようび|thứ mấy|4
+ |今|いま|bây giờ|4
+ |午前|ごぜん|sáng, trước 12 giờ trưa|4
+ |午後|ごご|chiều, sau 12 giờ trưa|4
+ |半|はん|rưỡi, nửa|4
+ |朝|あさ|buổi sáng, sáng|4
+ |昼|ひる|buổi trưa, trưa|4
+ |夕方|ゆうがた|buổi chiều, chiều|4
+ |晩|ばん|buổi tối, tối|4
+ |夜|よる|đêm, khuya|4
+ |一昨日|おととい|hôm kia|4
+ |昨日|きのう|hôm qua|4
+ |今日|きょう|hôm nay|4
+ |明日|あした|ngày mai|4
+ |明後日|あさって|ngày kia|4
+ |今朝|けさ|sáng nay|4
+ |今晩|こんばん|tối nay|4
+ |今夜|こんや|đêm nay|4
+ |休み|やすみ|nghỉ, nghỉ phép, ngày nghỉ|4
+ |昼休み|ひるやすみ|nghỉ trưa|4
+ |毎朝|まいあさ|mỗi sáng|4
+ |毎晩|まいばん|mỗi tối|4
+ |毎日|まいにち|mỗi ngày|4
+ |何時|なんじ|mấy giờ|4
+ |何分|なんぷん|mấy phút|4
+ |働く　I|はたらく　I|làm việc|-1
+ |働きます|はたらきます|làm việc|4
+ |休む　I|やすむ　I|nghỉ, nghỉ ngơi|-1
+ |休みます|やすみます|nghỉ, nghỉ ngơi|4
+ |終わる　I|おわる　I|hết, kết thúc, xong|-1
+ |終わります|おわります|hết, kết thúc, xong|4
+ |起きる　II|おきる　II|thức dậy|-1
+ |起きます|おきます|thức dậy |4
+ |寝る　II|ねる　II|ngủ|-1
+ |寝ます|ねます|ngủ|4
+ |勉強する　III|べんきょうする　III|học|-1
+ |勉強します|べんきょうします|học|4
+ | |～から|từ ~|4
+ | |～まで|đến ~|4
+ | |～と～|~ và (dùng để nối hai danh từ)|4
+ |試験|しけん|kỳ thi|4
+ |会議|かいぎ|cuộc họp|4

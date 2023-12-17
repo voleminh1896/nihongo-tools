@@ -272,7 +272,7 @@ async function getDatasVocabulary(filter) {
             for (let index = 0; index < inputFilter.length; index++) {
                 const element = inputFilter[index];
 
-                if (filter.includes(element)) {
+                if (filter === "" || filter.includes(element)) {
                     isAdd = true;
                 }
 
