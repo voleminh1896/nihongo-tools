@@ -162,17 +162,17 @@ Anata|あなた|あなた|anh/chị, ông/bà, bạn (ngôi thứ II số ít)|1
  |毎日|まいにち|mỗi ngày|4
  |何時|なんじ|mấy giờ|4
  |何分|なんぷん|mấy phút|4
- |働く　I|はたらく　I|làm việc|-1
+ |働く　I|はたらく　I|làm việc|99
  |働きます|はたらきます|làm việc|4
- |休む　I|やすむ　I|nghỉ, nghỉ ngơi|-1
+ |休む　I|やすむ　I|nghỉ, nghỉ ngơi|99
  |休みます|やすみます|nghỉ, nghỉ ngơi|4
- |終わる　I|おわる　I|hết, kết thúc, xong|-1
+ |終わる　I|おわる　I|hết, kết thúc, xong|99
  |終わります|おわります|hết, kết thúc, xong|4
- |起きる　II|おきる　II|thức dậy|-1
+ |起きる　II|おきる　II|thức dậy|99
  |起きます|おきます|thức dậy |4
- |寝る　II|ねる　II|ngủ|-1
+ |寝る　II|ねる　II|ngủ|99
  |寝ます|ねます|ngủ|4
- |勉強する　III|べんきょうする　III|học|-1
+ |勉強する　III|べんきょうする　III|học|99
  |勉強します|べんきょうします|học|4
  | |～から|từ ~|4
  | |～まで|đến ~|4
