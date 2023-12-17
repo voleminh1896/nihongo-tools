@@ -21,6 +21,7 @@ const romajiControlView = document.getElementById("romaji");
 const hiraganaControlView = document.getElementById("hiragana");
 const katakanaControlView = document.getElementById("katakana");
 const totalControlView = document.getElementById("total");
+const footerContentControlView = document.getElementById("footerContent");
 
 const totalKanjiControlView = document.getElementById("totalKanji");
 const onyomiKanjiControlView = document.getElementById("onyomiKanji");
@@ -85,9 +86,103 @@ var romajiVocabulary = "";
 var vocabulary = "";
 var englishVocabulary = "";
 
+main();
 mainNihongo();
 mainKanji();
 mainVocabulary();
+
+listVocabulary();
+
+// Javascript code
+var startTime, elapsedTime, timerInterval;
+
+function startTimer() {
+    startTime = Date.now() - elapsedTime;
+    timerInterval = setInterval(function () {
+        var currentTime = Date.now();
+        elapsedTime = currentTime - startTime;
+        updateDisplay(elapsedTime);
+    }, 10);
+}
+
+function stopTimer() {
+    clearInterval(timerInterval);
+}
+
+function resetTimer() {
+    clearInterval(timerInterval);
+    elapsedTime = 0;
+    updateDisplay(elapsedTime);
+}
+
+function updateDisplay(time) {
+    var milliseconds = Math.floor((time % 1000) / 10);
+    var seconds = Math.floor((time / 1000) % 60);
+    var minutes = Math.floor((time / 1000 / 60) % 60);
+    var hours = Math.floor((time / 1000 / 60 / 60) % 24);
+
+    var displayTime = hours.toString().padStart(2, '0') + ':' +
+        minutes.toString().padStart(2, '0') + ':' +
+        seconds.toString().padStart(2, '0') + '.' +
+        milliseconds.toString().padStart(2, '0');
+
+    document.querySelector('.display').textContent = displayTime;
+}
+
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
+
+function startTime() {
+    var today = new Date();
+    var yyyy = today.getFullYear();
+    var mm = today.getMonth() + 1;
+    var dd = today.getDate();
+
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    // add a zero in front of numbers<10
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('time').innerHTML = yyyy + "/" + mm + "/" + dd + " " + h + ":" + m + ":" + s;
+    t = setTimeout(function () {
+        startTime()
+    }, 500);
+}
+
+function main() {
+    const currentDate = new Date();
+    footerContentControlView.innerHTML = "Copyright © " + currentDate.getFullYear() + " . All Rights Reserved. Design by <a href=\"mailto: voleminh1896@gmail.com\">Minke</a>";
+    startTime();
+    document.querySelector('.start').addEventListener('click', startTimer);
+    document.querySelector('.stop').addEventListener('click', stopTimer);
+    document.querySelector('.reset').addEventListener('click', resetTimer);
+    resetTimer();
+}
+
+function listVocabulary() {
+    var tr = document.createElement('tr');
+
+    var th = document.createElement('th');
+    th.innerHTML = "Ádsd";
+    var td1 = document.createElement('td');
+    td1.innerHTML = "Ádsd";
+    var td2 = document.createElement('td');
+    td2.innerHTML = "Ádsd";
+    var td3 = document.createElement('td');
+    td3.innerHTML = "Ádsd";
+
+    tr.appendChild(th);
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+
+    document.getElementById("listVocabularyTable").appendChild(tr);
+}
 
 async function mainNihongo() {
     // content default 
