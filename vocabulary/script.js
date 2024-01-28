@@ -4,24 +4,33 @@ class App extends React.Component {
     super();
 
     this.state = {
-      cards: [{ front: '', front1: '', back: '', back1: '' }],
+      cards: [{ front: "", front1: "", back: "", back1: "" }],
+      filters: '',
     };
-    this.getDatasVocabulary("10");
 
-    // this.state.cards.splice(0, 1);
+    this.reload("");
   }
 
   render() {
     return /*#__PURE__*/(
       React.createElement("div", { className: "App" }, /*#__PURE__*/
         React.createElement(Flashcards, {
-          cards: this.state.cards
+          cards: this.state.cards,
+          handleReload: this.reload,
         })));
   }
 
-  getDatasVocabulary(filter) {
+  async reload(filters) {
+    const datas = await ModelsData.getDatasVocabulary(filters);
+    this.setState({ cards: datas });
+  }
+}
+
+class ModelsData {
+  static async getDatasVocabulary(filter) {
+    const datas = [];
     const data = this.fetchCsv();
-    data.then(result => {
+    await data.then(async result => {
       if (result !== '') {
         var values = result.split('\r\n');
 
@@ -45,17 +54,17 @@ class App extends React.Component {
             }
 
             if (isAdd) {
-              this.state.cards.push({ front: value[0], front1: value[1], back: value[2], back1: value[3] });
+              await datas.push({ front: value[0], front1: value[1], back: value[2], back1: value[3] });
             }
           }
         }
       }
     });
-    // console.log(this.state.cards);
-    // this.state.cards.length = 50;
+
+    return datas;
   }
 
-  fetchCsv() {
+  static fetchCsv() {
     return fetch('data/vocabulary.csv').then(function (response) {
       let reader = response.body.getReader();
       let decoder = new TextDecoder('utf-8');
@@ -66,7 +75,6 @@ class App extends React.Component {
     });
   }
 }
-
 
 class Flashcards extends React.Component {
   constructor(props) {
@@ -93,17 +101,66 @@ class Flashcards extends React.Component {
           })), /*#__PURE__*/
 
         React.createElement("div", null, /*#__PURE__*/
+          React.createElement(FilterInput, {
+            arrowHandler: this.arrowHandler,
+            cards: this.props.cards,
+            filters: this.props.filters,
+          }),
+          React.createElement(FilterButton, {
+            arrowHandler: this.arrowHandler,
+            cards: this.props.cards,
+            filters: this.props.filters,
+            handleReload: this.props.handleReload,
+          }),
+        ),
+
+        React.createElement("div", null, /*#__PURE__*/
           React.createElement(NavButtons, {
             arrowHandler: this.arrowHandler,
             cardIndex: this.state.cardIndex,
             cardLength: this.props.cards.length
-          }))));
-
-
-
+          })),
+      ));
   }
 }
 
+class FilterButton extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      React.createElement('button', {
+        className: 'postfix',
+        onClick: () => this.clickFilter(),
+      }, 'Filter')
+    );
+  }
+
+  async clickFilter() {
+    const filterInput = document.getElementById("filterInput");
+    console.log("Button Filter");
+    this.props.handleReload(filterInput.value);
+  };
+}
+
+class FilterInput extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const inputData = React.createElement('input', {
+      type: 'text',
+      id: 'filterInput',
+    });
+
+    return (
+      inputData
+    );
+  }
+}
 
 class FlashcardItem extends React.Component {
   constructor(props) {
@@ -138,7 +195,6 @@ class FlashcardItem extends React.Component {
   }
 }
 
-
 NavButtons = props => {
   const leftStyle = props.cardIndex - 1 < 0 ? { opacity: 0.5 } : {};
   const rightStyle = props.cardIndex + 1 >= props.cardLength ? { opacity: 0.5 } : {};
@@ -147,8 +203,6 @@ NavButtons = props => {
       React.createElement("div", { className: "nav-arrow-btn", style: leftStyle, onClick: () => props.arrowHandler(true) }, "\u2190"),
       `${props.cardIndex + 1}/${props.cardLength}`, /*#__PURE__*/
       React.createElement("div", { className: "nav-arrow-btn", style: rightStyle, onClick: () => props.arrowHandler(false) }, "\u2192")));
-
-
 };
 
 ReactDOM.render( /*#__PURE__*/React.createElement(App, null), document.getElementById('root'));

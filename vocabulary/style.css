@@ -22,7 +22,7 @@ html, body, #root, .App {
 
 .flashcard-viewer {
 	position: relative;
-	width: 60%;
+	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
